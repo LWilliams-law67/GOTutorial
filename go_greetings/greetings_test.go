@@ -10,7 +10,7 @@ import (
 func TestHelloName(t *testing.T) {
 	name := "Luke"
 	want := regexp.MustCompile(`\b` + name + `\b`)
-	msg, err := greetings.Hello(name)
+	msg, err := Hello(name)
 	if !want.MatchString(msg) || err != nil {
 		t.Fatalf(`Hello("Luke") = %q, %v, want match for %#q, nil`, msg, err, want)
 	}
@@ -19,7 +19,7 @@ func TestHelloName(t *testing.T) {
 // TestHelloEmpty calls greetings.Hello with empty string,
 // checking for an error
 func TestHelloEmpty(t *testing.T) {
-	msg, err := greetings.Hello("")
+	msg, err := Hello("")
 	if msg != "" || err == nil {
 		t.Fatalf(`Hello("") = %q, %v, want "", error`, msg, err)
 	}
